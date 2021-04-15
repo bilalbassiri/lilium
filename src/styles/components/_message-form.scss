@@ -1,0 +1,83 @@
+form {
+    @extend %bottomPart;
+    background-color: white;
+    gap: 10px;
+    input, .selected {
+            flex: 2;
+            padding-left: 10px;
+    }
+    input {
+        &::placeholder {
+            font-family: 'Nunito', sans-serif;
+            font-size: .8rem;
+            color: rgb(179, 179, 179);
+            font-weight: 600;
+        }
+
+    }
+    .selected {   
+        &-image {
+            position: relative;
+            opacity: .3;
+            transform: scale(0);
+            animation: d 200ms ease forwards;
+            span {
+               @include boxSize(25px, 25px, 5px);
+               @include Grid;
+                background-color: rgb(204, 219, 230);
+                &>* {
+                    font-size: 1.1rem;
+                }
+            }
+            .clear-image-icon {
+                position: absolute;
+                color: rgb(255, 255, 255);
+                font-size: .8rem;
+                padding: 1px;
+                background-color: rgb(145, 145, 145);
+                border-radius: 50%;
+                cursor: pointer;
+                left: 0;
+                top: 0;
+                transform: translate(-50%, -50%);
+                &:hover {
+                    background-color: rgb(126, 126, 126);  
+                }
+            }
+        }
+    }
+    .message-icons-container {
+        display: flex;
+        gap: 10px;
+        button, .select-image-label {
+            @include Grid;
+            cursor: pointer;
+        }
+        .upload-image-holder {
+            @include centerItems;
+            .select-image-input {
+                display: none;
+            }
+        }
+        .send-icon, .select-icon {
+                color: $message-icons-color;
+                &:hover {
+                    color: $message-select-image-hover-color;
+                }
+        }
+        .send-icon {
+            transition: color 200ms cubic-bezier(.15,1.12,.26,.92); 
+        }  
+        
+    }
+
+    input, .message-icons-container {
+        height: 40px;
+    }    
+}
+@keyframes d {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

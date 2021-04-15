@@ -1,0 +1,10 @@
+.message-options {
+    button {
+        @include Grid;
+        cursor: pointer;
+        opacity: .7;
+        &:hover {
+            opacity: .8;
+        }
+    }
+}

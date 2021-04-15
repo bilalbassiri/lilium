@@ -1,0 +1,15 @@
+.channel-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    min-height: 38px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    .channel-info-leave {
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: .7rem;
+        }
+    }
+}

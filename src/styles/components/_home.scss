@@ -1,0 +1,58 @@
+.home {
+    @include boxSize(100vh, 100%);
+    .absolute-full-screen-image {
+        display: grid;
+        place-content: center;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.604);
+        position: absolute;
+        z-index: 999;
+        padding: 20px;
+        opacity: 0;
+        animation: full 200ms ease-in forwards;
+        img {
+            object-fit: contain;
+            max-height: 80vh;
+            max-width: 100%;
+        }
+    }
+        .side { 
+            display: none;
+        }
+        .left-side-item {
+            .reminder {
+               h5 {
+                   font-size: 1rem;
+               }
+               p {
+                   font-size: .8rem;
+                   color: rgb(130, 130, 130);
+                   span {
+                       font-weight: bold;
+                   }
+               }
+            }
+        }
+        .chat-room  {
+            @include flexColumn;
+        }
+}
+
+@keyframes full {
+    to{
+        opacity: 1;
+    }
+}
+@media screen and (min-width: 600px) {
+    .home {
+            .side {
+                @include flexColumn;
+                padding: 20px;
+            }
+            .chat-room {
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
+    }
+}

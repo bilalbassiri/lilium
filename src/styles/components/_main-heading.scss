@@ -1,0 +1,9 @@
+.main-heading {
+    font-size: 1rem;
+    &::after {
+        @include boxSize(4px, 16px, 10px);
+        content: '';
+        display: block;
+        background-color: $main-color;
+    }
+}

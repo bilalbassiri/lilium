@@ -1,0 +1,112 @@
+.single-message {
+    display: flex;
+    gap: 5px;
+    &:hover .hidden-info .message-options button, &:hover .hidden-info .time {
+        visibility: visible;
+    }
+    .face-icon {
+        .user-avatar {
+            height: 30px;
+            width: 30px;
+            font-size: .9rem;
+            visibility: hidden;
+        }
+    }
+    .msg-body {
+        @include centerItems;
+        max-width: 70%;
+        min-width: 50px;
+        padding: 8px 10px;
+        border-radius: 15px;
+        position: relative;
+        font-size: .9rem;
+        opacity: 0;
+        transform: scale(0);
+        animation: f 200ms ease-in-out forwards;
+        p {
+            .message-type-image {
+                width: 150px;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+        }
+        .speak-flesh {
+           @include boxSize(0px, 0px);
+            border-left: 8px solid transparent;
+            position: absolute;
+            bottom: 0;
+            top: 0;
+        }
+
+    }
+    .hidden-info {
+        @include centerItems;
+        gap: 15px;
+        padding: 0px 15px;
+        .time {
+            color: $message-sent-time-color;
+            font-size: .65rem;
+            font-weight: bold;
+        }
+    }
+    .hidden-info, .message-options {
+        visibility: hidden;
+    }
+}
+.current-user-message {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    .msg-body {
+        background-color: $current-user-message-background-color;
+        color: $current-user-text-color;
+    }
+}
+.other-users-message {
+    .msg-body {
+        background-color: $other-users-message-background-color;
+    }
+}
+.current-user-first-message, .other-users-first-message {
+    margin-top: 10px;
+    .face-icon {
+        .user-avatar {
+            visibility: visible;
+        }
+    }
+}
+.current-user-first-message {
+        .msg-body {
+            border-top-right-radius: 0px;
+            .speak-flesh {
+                    border-top: 8px solid $main-color;
+                    right: -7px;
+                    transform: rotate(-90deg);
+            }
+        }
+}
+.other-users-first-message {
+        .msg-body {
+            border-top-left-radius: 0px;
+            .speak-flesh {
+                border-top: 8px solid $other-users-message-background-color;
+                left: -8px;
+            }
+        }
+}
+.message-image {
+    .msg-body {
+        background: none;
+        padding: 0px;
+        padding-top: 10px;
+        .speak-flesh {
+            display: none;
+        }
+    }
+}
+@keyframes f {
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

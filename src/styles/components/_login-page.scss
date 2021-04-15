@@ -1,0 +1,45 @@
+.login-page {
+    @include boxSize(100vh, 100%);
+    display: flex;
+    .sign-in-card {
+        flex: 1;
+        animation: l-item 1s 300ms cubic-bezier(0,.01,.33,.94) forwards;
+        @include flexColumn;
+        .sign-in-body {
+            @include flexColumnCenterItems;
+            justify-content: center;
+            flex: 1;
+            h2 {
+                font-size: 3.5rem;
+            }
+        }
+    }
+    .random-quote {
+        color: white;
+        animation: r-item 1s 300ms cubic-bezier(0,.01,.33,.94) forwards;
+        flex: 0;
+        opacity: 0;
+        height: 100%;
+        background-color: $main-color;
+        h4 {
+            opacity: 0;
+            animation: r-item-body 500ms 1.3s cubic-bezier(0,.01,.33,.94) forwards;
+        }
+    }
+}
+@keyframes r-item {
+    100% {
+        flex: .4;
+        opacity: 1;
+    }
+}
+@keyframes l-item {
+    100% {
+        flex: .6;
+    }
+}
+@keyframes r-item-body {
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,58 @@
+.antenna-container {
+    @include flexColumnCenterItems;
+    padding: 10px;
+    padding-top: 20px;
+    .frequency {
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding-bottom: 15px;
+        color: rgb(92, 92, 92);
+    }
+    .antenna {
+        $pointer-width: 5;
+        @include centerItems;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        .change-frequency-button {
+            @include boxSize(20px, 20px, 50%);
+            @include Grid;
+            cursor: pointer;
+            &:hover > *{
+                opacity: .8;
+            }
+            & > * {
+                opacity: .5;
+                font-size: .9rem;
+                border-radius: 50%;
+            }
+        }
+    
+        .poles {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: #{$pointer-width}px;
+            .pointer {
+                position: absolute;
+                @include boxSize(20px, #{$pointer-width}px, 10px);
+                background-color: $antenna-pointer-color;
+                left: 0;
+                transition: height, transform 200ms cubic-bezier(.17,.67,.58,.73);
+            }
+           .frequency-pole {
+               transition: opacity 200ms ease;
+            &:nth-of-type(2n) {
+             background-color: $antenna-major-pole-color;
+             @include boxSize(20px, #{$pointer-width}px, 10px)
+            }
+            &:nth-of-type(2n+1) {
+                background-color: $antenna-minor-pole-color;
+                @include boxSize(10px, #{$pointer-width}px, 10px)
+            }
+            } 
+        }
+        
+    }
+}

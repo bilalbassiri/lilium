@@ -1,0 +1,41 @@
+.loading {
+    @include boxSize(300px, 100%);
+    display: grid;
+    place-content: center;
+    .atom {
+        position: relative;
+            .electron {
+                 @include boxSize(15px, 15px, 50%);
+                    position: absolute;
+                    animation: electron-rotate 1s linear infinite;
+                    transform-origin: bottom;
+                    &::after {
+                        @include boxSize(4px, 4px, 50%);
+                        content: '';
+                        display: block;
+                        transform: rotate(45deg);
+                        background-color: $loading-electron-second-color;
+                    }
+                    }
+                    .electron-1 {
+                        &::after {
+                           @include boxSize(8px, 8px, 50%);
+                            background-color: $loading-electron-first-color;
+                        }
+                    }
+                    .electron-2 {
+                        animation-direction: reverse;
+                    }
+                    .electron-3 {
+                        animation-direction: alternate;
+                        animation-timing-function: cubic-bezier(1,.74,.95,.82);
+
+                    }
+    }
+    
+}
+@keyframes electron-rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}

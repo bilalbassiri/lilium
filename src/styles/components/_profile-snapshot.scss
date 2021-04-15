@@ -1,0 +1,9 @@
+.profile-snapshot {
+    @include flexColumnCenterItems;
+    margin-bottom: 40px;
+    &-name {
+        margin-top: 5px;
+        font-size: 1.2rem;
+    }
+
+}

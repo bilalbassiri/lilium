@@ -1,0 +1,28 @@
+.members {
+    .members-list {
+        margin-top: 10px;
+        overflow-y: hidden;
+       @include flexColumn;
+       .be-a-lilium {
+           font-size: .9rem;
+           color: rgb(191, 191, 191);
+           padding: 8px;
+           text-align: center;
+       }
+        .member {
+            @include centerItems;
+            gap: 10px;
+            padding: 8px;
+            opacity: .3;
+            animation: M 1s ease forwards;
+            h5 {
+                font-size: .9rem;
+            }
+        }
+    }
+}
+@keyframes M {
+    to {
+        opacity: 1;
+    }
+}

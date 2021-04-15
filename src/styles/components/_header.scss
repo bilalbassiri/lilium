@@ -1,0 +1,15 @@
+.main-header {
+    @include centerItems;
+    justify-content: space-between;
+    padding: 20px;
+    .logo-container {
+        align-self: flex-start;
+    }
+    .user-ss-snapshot {
+        @include centerItems;
+       gap: 5px;
+        h2 {
+            font-size: .9rem;
+        }
+    }
+}
