@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const UserContext = createContext();
 UserContext.displayName = "UserContext";
@@ -7,22 +7,24 @@ const useUserProfile = () => useContext(UserContext).userProfile;
 const useSetUserProfile = () => useContext(UserContext).setUserProfile;
 const useIsNewUser = () => useContext(UserContext).isNewUser;
 const useSetIsNewUser = () => useContext(UserContext).setIsNewUser;
+const useIsloggedIn = () => useContext(UserContext).isLoggedIn;
 
 const UserProvider = ({ children }) => {
-    const [userProfile, setUserProfile] = useState({
-        "name": "Soprano Tommy",
-        "granted_scopes": "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid",
-        "id": "102100421433288476597",
-        "verified_email": true,
-        "given_name": "Soprano",
-        "locale": "en",
-        "family_name": "Tommy",
-        "email": "sprntommy@gmail.com",
-        "picture": "https://lh3.googleusercontent.com/a-/AOh14GjXGBWUOHRXkoprUPIwek67X3_bWQuCgDNhisEH=s96-c"
-    })
+    const [userProfile, setUserProfile] = useState(null)
     const [isNewUser, setIsNewUser] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => {
+        setIsLoggedIn(!!userProfile)
+    }, [userProfile])
+    const value = {
+        userProfile,
+        setUserProfile,
+        isNewUser,
+        setIsNewUser,
+        isLoggedIn
+    }
     return (
-        <UserContext.Provider value={{ userProfile, setUserProfile, isNewUser, setIsNewUser }}>
+        <UserContext.Provider value={value}>
             { children}
         </UserContext.Provider>
     )
@@ -32,5 +34,6 @@ export {
     useUserProfile,
     useSetUserProfile,
     useSetIsNewUser,
-    useIsNewUser
+    useIsNewUser,
+    useIsloggedIn
 }

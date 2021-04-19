@@ -22,7 +22,7 @@ const leaveChannel = async (frequency, currentUserEmail, channelMembers) => {
 }
 
 const watchChannelMembers = (fr, setChannelMembers) => {
-    db.collection('channel-members').doc(`channel-${fr}`).onSnapshot(doc => setChannelMembers(doc.data().members))
+    db.collection('channel-members').doc(`channel-${fr}`).onSnapshot(doc => setChannelMembers(doc.data()?.members))
 }
 
 const watchChannelMessages = (fr, setChannelMessages) => {

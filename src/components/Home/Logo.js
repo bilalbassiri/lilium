@@ -1,6 +1,8 @@
 import React from 'react'
+import { useIsloggedIn } from '../../contexts/UserContext';
 
-const Logo = ({ loggedIn }) => {
+const Logo = () => {
+    const isLoggedIn = useIsloggedIn();
     return (
         <div className="logo-container">
             <div className="logo">
@@ -10,7 +12,7 @@ const Logo = ({ loggedIn }) => {
                     <div></div>
                 </div>
             </div>
-            <h1 className="name">{loggedIn ? '' : 'lilium'}</h1>
+            <h1 className="name">{isLoggedIn ? '' : 'lilium'}</h1>
         </div>
     )
 }

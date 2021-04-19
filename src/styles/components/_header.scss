@@ -7,9 +7,19 @@
     }
     .user-ss-snapshot {
         @include centerItems;
-       gap: 5px;
+        gap: 5px;
         h2 {
-            font-size: .9rem;
+            font-size: 0.9rem;
+        }
+    }
+    .github {
+        color: rgb(181, 181, 181);
+        transition-duration: 200ms;
+        &:hover {
+            color: rgb(136, 136, 136);
+        }
+        .icon {
+            font-size: 1.1rem;
         }
     }
 }

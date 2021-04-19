@@ -11,7 +11,7 @@ import {
     Logo,
     Intro,
     MainHeading,
-    Header
+    Header,
 } from '.';
 
 import Grid from '@material-ui/core/Grid';
@@ -55,7 +55,7 @@ const Home = () => {
                 }
                 <Grid item container wrap="nowrap" sm={3} xs={12} justify="space-between" className="left-side-item side">
                     <Grid item>
-                        <Logo loggedIn={true} />
+                        <Logo />
                         <ProfileSnapshot />
                         <Members />
                     </Grid>
@@ -71,7 +71,7 @@ const Home = () => {
                         isSmallScreen
                         &&
                         <>
-                            <Header loggedIn={true} userProfile={userProfile} />
+                            <Header />
                             <Antenna />
                             <ChannelInfo />
                         </>
@@ -85,9 +85,13 @@ const Home = () => {
                             <JoinChannel />
                     }
                 </Grid>
-                <Grid className="right-side-item side" wrap="nowrap" container item sm={3} xs={12} >
-                    <MainHeading title="Channel" />
-                    <Antenna />
+                <Grid className="right-side-item side" direction="column" wrap="nowrap" justify="space-between" item container sm={3} xs={12} >
+                    <Grid item>
+                        <MainHeading title="Channel" />
+                        <Antenna />
+                    </Grid>
+                    <Grid item>
+                    </Grid>
                 </Grid>
             </Grid>
             :

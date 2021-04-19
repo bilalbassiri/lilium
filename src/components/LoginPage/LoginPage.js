@@ -4,6 +4,7 @@ import { useSetIsNewUser, useSetUserProfile } from '../../contexts/UserContext';
 import Header from '../Header';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { FormatQuoteRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,14 +27,13 @@ const LoginPage = () => {
     const classes = useStyles();
     const setUserProfile = useSetUserProfile();
     const setIsNewUser = useSetIsNewUser();
-
     return (
         <div className="login-page">
             <div className="sign-in-card">
                 <Header />
                 <main className="sign-in-body">
                     <h2>Hello!</h2>
-                    <p>Duis veniam sit aliqua exercitation tempor nostrud enim amet ipsum ut.</p>
+                    <p>Pariatur exercitation enim do veniam Lorem veniam labore ex excepteur.</p>
                     <div className={classes.root}>
                         <Button
                             variant="outlined"
@@ -50,8 +50,15 @@ const LoginPage = () => {
                     </div>
                 </main>
             </div>
-            <div className="random-quote">
-                    <h3>sada</h3>
+            <div className="quote-container">
+                <div className="ff"></div>
+                <div className="quote">
+                    <FormatQuoteRounded style={{ fontSize: '4rem', transform: 'rotate(.5turn)' }} />
+                    <blockquote>
+                        A book must be the axe for the frozen sea within us.
+                    </blockquote>
+                    <p>― Franz Kafka</p>
+                </div>
             </div>
         </div>
     )
